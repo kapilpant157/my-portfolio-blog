@@ -1,0 +1,57 @@
+---
+slug: "getting-started-with-nextjs"
+title: "Getting Started with Next.js"
+excerpt: "Learn how to set up a new Next.js project with all the latest features"
+date: "2023-05-15"
+featured: true
+---
+
+import { FaTerminal, FaCode, FaRocket } from 'react-icons/fa'
+
+<div className="max-w-4xl mx-auto px-4 py-8">
+
+## Why Choose Next.js?
+
+Next.js has become the go-to framework for React developers because of:
+
+- **Hybrid Rendering**: Choose between SSG, SSR, or ISR on a per-page basis
+- **Built-in Optimization**: Automatic image, font, and script optimization
+- **API Routes**: Create API endpoints alongside your pages
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div className="bg-white p-6 rounded-lg shadow-md">
+    <FaTerminal className="text-blue-500 text-2xl mb-3" />
+    <h3 className="text-xl font-semibold">Quick Setup</h3>
+    <p className="mt-2 text-gray-600">
+      Start a new project with just one command: 
+      <code className="bg-gray-100 px-2 py-1 rounded ml-1">npx create-next-app</code>
+    </p>
+  </div>
+
+  <div className="bg-white p-6 rounded-lg shadow-md">
+    <FaCode className="text-blue-500 text-2xl mb-3" />
+    <h3 className="text-xl font-semibold">Zero Config</h3>
+    <p className="mt-2 text-gray-600">
+      Automatic code splitting, routing, and compilation without configuration
+    </p>
+  </div>
+
+  <div className="bg-white p-6 rounded-lg shadow-md">
+    <FaRocket className="text-blue-500 text-2xl mb-3" />
+    <h3 className="text-xl font-semibold">Production Ready</h3>
+    <p className="mt-2 text-gray-600">
+      Optimized builds, image optimization, and internationalization out of the box
+    </p>
+  </div>
+</div>
+
+## Basic Project Structure
+
+```bash
+my-next-app/
+├── pages/
+│   ├── api/          # API routes
+│   ├── _app.js       # Custom App
+│   └── index.js      # Home page
+├── public/           # Static files
+└── styles/           # CSS files

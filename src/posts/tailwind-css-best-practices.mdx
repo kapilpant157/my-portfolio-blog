@@ -1,0 +1,39 @@
+---
+slug: "tailwind-css-best-practices"
+title: "Tailwind CSS Best Practices"
+excerpt: "Learn how to use Tailwind CSS effectively in your projects"
+date: "2023-06-20"
+featured: true
+---
+
+import { FaPaintBrush, FaCodeBranch, FaLayerGroup } from 'react-icons/fa'
+
+<div className="max-w-4xl mx-auto px-4 py-8 bg-white rounded-lg shadow-sm">
+
+## 1. Use @apply Sparingly
+
+<div className="flex items-start my-6 p-4 bg-yellow-50 border-l-4 border-yellow-400">
+  <FaPaintBrush className="text-yellow-500 mt-1 mr-3 flex-shrink-0" />
+  <div>
+    <h3 className="font-bold">When to @apply:</h3>
+    <ul className="list-disc pl-5 mt-2 space-y-1">
+      <li>For repeated utility patterns</li>
+      <li>When extracting component classes</li>
+      <li>For complex animations</li>
+    </ul>
+  </div>
+</div>
+
+## 2. Organize Your Classes
+
+```jsx
+// Good organization example
+<button className="
+  px-4 py-2 
+  bg-blue-600 hover:bg-blue-700 
+  text-white font-medium 
+  rounded-lg shadow-md
+  transition-colors duration-200
+">
+  Click Me
+</button>

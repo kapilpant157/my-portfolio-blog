@@ -12,13 +12,12 @@ module.exports = {
           primary: {
             back:'#080b10',
             light: '#3b82f6',
-            dark: '#60a5fa',
-            500: '#6366f1',
-            600: '#4f46e5',
+            dark: '#0c0000',
+            
           },
           secondary: {
             light: '#10b981',
-            dark: '#34d399',
+            dark: '#0c0000',
           },
         },
       },

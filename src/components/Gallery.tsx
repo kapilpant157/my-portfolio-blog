@@ -45,6 +45,31 @@ const galleryItems = [
     title: 'Product Launch',
     description: 'Official product demonstration',
     date: 'June 2023'
+  },{
+    id: '4',
+    type: 'image',
+    src: '/gallery/abc.png',
+    alt: 'UI Design Project',
+    title: 'E-commerce Dashboard',
+    description: 'Modern dashboard interface',
+    date: 'May 2023'
+  },
+  {
+    id: '5',
+    type: 'video',
+    src: '/gallery/video1.mp4',
+    alt: 'Mobile App Demo',
+    title: 'Fitness Tracker App',
+    date: 'March 2023'
+  },
+  {
+    id: '6',
+    type: 'youtube',
+    src: 'https://www.youtube.com/watch?v=3cDCtSAoWWw&ab_channel=KapilDevPant',
+    alt: 'Product Demo',
+    title: 'Product Launch',
+    description: 'Official product demonstration',
+    date: 'June 2023'
   }
 ] satisfies GalleryItem[]
 

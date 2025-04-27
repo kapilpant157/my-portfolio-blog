@@ -1,9 +1,8 @@
+/* Uncomment these if using Tailwind CSS */
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-
-@import "tailwindcss";
-
+ @import "tailwindcss";
 /* Light Mode (default) */
 :root {
   --background: #ffffff;
@@ -12,33 +11,31 @@
   --secondary: #8b4513;
   --accent: #808080;
   --border: #d3d3d3;
-
-  --bg-color: var(--background);
-  --text-color: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #121212;
+    --foreground: #b90707;
     --primary: #ffa500;
-    --secondary: #a0522d;
-    --accent: #b0b0b0;
-    --border: #333333;
-
-    --bg-color: var(--background);
-    --text-color: var(--foreground);
+    --secondary: #d2b48c;
+    --accent: #606060;
+    --border: #444444;
   }
 }
 
-/* Explicit dark mode via class (overrides system preference) */
+/* Explicit dark mode class */
 .dark {
-  --bg-color: #000a1f;
-  --text-color: #f7fafc;
+  --background: #000a1f;
+  --foreground: #f7fafc;
+  --primary: #ffa500;
+  --secondary: #d2b48c;
+  --accent: #606060;
+  --border: #444444;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

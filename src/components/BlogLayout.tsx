@@ -147,7 +147,7 @@
 // export default function MdxProvider({ source }: { source: MDXRemoteProps }) {
 //   return <MDXRemote {...source} components={components} />
 // }
-
+// filepath: d:\Projects\new website\my-portfolio-blog\src\components\BlogLayout.tsx
 import Link from 'next/link'
 import { formatDate } from '@/lib/utils'
 

@@ -1,8 +1,8 @@
 "use client"
-import { 
-  useState, 
-  useEffect 
-} from "react";
+// import { 
+//   useState, 
+//   useEffect 
+// } from "react";
 import {
   FaCube,
   FaGlobe,
@@ -872,7 +872,7 @@ export default function SimulationModeling() {
               </div>
 
               <div className="italic text-gray-600 bg-gray-100 rounded-lg p-4 text-center mt-8">
-                "All models are wrong, but some are useful." — George E. P. Box,
+              &quot;All models are wrong, but some are useful.&quot; — George E. P. Box,
                 statistician
               </div>
             </div>
@@ -901,12 +901,12 @@ export default function SimulationModeling() {
                 </p>
                 <div className="flex flex-wrap mt-2 text-gray-700">
                   <div className="mr-8 ">
-                    <strong>Verification:</strong> "Are we building the model
-                    right?"
+                    <strong>Verification:</strong> &quot;Are we building the model
+                    right?&quot;
                   </div>
                   <div>
-                    <strong>Validation:</strong> "Are we building the right
-                    model?"
+                    <strong>Validation:</strong> &quot;Are we building the right
+                    model?&quot;
                   </div>
                 </div>
               </div>
@@ -1098,7 +1098,7 @@ export default function SimulationModeling() {
         
         <div className="bg-blue-50/60 border-l-4 border-blue-500 p-6 rounded-r-lg mb-6">
           <h2 className="text-xl text-blue-800 mb-3">Key Concepts Covered</h2>
-          <p className="text-gray-700">We've explored the fundamentals of simulation and modeling, building a foundation for understanding how to represent and analyze complex systems.</p>
+          <p className="text-gray-700">We &apos;ve explored the fundamentals of simulation and modeling, building a foundation for understanding how to represent and analyze complex systems.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -1184,7 +1184,7 @@ export default function SimulationModeling() {
         </div>
         
         <div className="italic text-gray-600 text-center mt-8">
-          "Simulation is the imitation of the operation of a real-world process or system over time."
+        &quot;Simulation is the imitation of the operation of a real-world process or system over time.&quot;
         </div>
       </div>
     </div>
@@ -1196,40 +1196,40 @@ export default function SimulationModeling() {
 // Optimized by extracting repeated components and data into reusable structures
 
 // Reusable Section Component
-const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
-    <div className="flex flex-col w-full max-w-6xl mx-auto min-h-[80vh] bg-gradient-to-br from-slate-50 to-slate-200 shadow-lg rounded-xl overflow-hidden relative">
-        <div className="absolute w-48 h-48 bg-blue-100/10 rounded-full top-0 right-0 translate-x-20 -translate-y-20"></div>
-        <div className="absolute w-48 h-48 bg-blue-100/10 rounded-full bottom-0 left-0 -translate-x-20 translate-y-20"></div>
-        <div className="p-8 md:p-12 h-full z-10 relative">{children}</div>
-    </div>
-);
+// const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+//     <div className="flex flex-col w-full max-w-6xl mx-auto min-h-[80vh] bg-gradient-to-br from-slate-50 to-slate-200 shadow-lg rounded-xl overflow-hidden relative">
+//         <div className="absolute w-48 h-48 bg-blue-100/10 rounded-full top-0 right-0 translate-x-20 -translate-y-20"></div>
+//         <div className="absolute w-48 h-48 bg-blue-100/10 rounded-full bottom-0 left-0 -translate-x-20 translate-y-20"></div>
+//         <div className="p-8 md:p-12 h-full z-10 relative">{children}</div>
+//     </div>
+// );
 
 // Reusable Card Component
-const Card = ({ icon: Icon, title, description }: { icon: React.ComponentType; title: string; description: string }) => (
-    <div className="bg-white rounded-lg p-4 shadow-sm flex items-start">
-        <div className="bg-blue-100 text-blue-600 w-9 h-9 rounded-full flex items-center justify-center mr-3 mt-1">
-            <Icon />
-        </div>
-        <div>
-            <h3 className="font-semibold text-blue-900">{title}</h3>
-            <p className="text-sm text-gray-600">{description}</p>
-        </div>
-    </div>
-);
+// const Card = ({ icon: Icon, title, description }: { icon: React.ComponentType; title: string; description: string }) => (
+//     <div className="bg-white rounded-lg p-4 shadow-sm flex items-start">
+//         <div className="bg-blue-100 text-blue-600 w-9 h-9 rounded-full flex items-center justify-center mr-3 mt-1">
+//             <Icon />
+//         </div>
+//         <div>
+//             <h3 className="font-semibold text-blue-900">{title}</h3>
+//             <p className="text-sm text-gray-600">{description}</p>
+//         </div>
+//     </div>
+// );
 
 // Reusable List Component
-const List = ({ items }: { items: string[] }) => (
-    <ul className="list-disc pl-6 space-y-2">
-        {items.map((item, index) => (
-            <li key={index} className="text-gray-700">
-                {item}
-            </li>
-        ))}
-    </ul>
-);
+// const List = ({ items }: { items: string[] }) => (
+//     <ul className="list-disc pl-6 space-y-2">
+//         {items.map((item, index) => (
+//             <li key={index} className="text-gray-700">
+//                 {item}
+//             </li>
+//         ))}
+//     </ul>
+// );
 
 // Example Usage of Optimized Components
-<Section title="Optimized Section">
+{/* <Section title="Optimized Section">
     <div className="header border-b-2 border-blue-500 pb-2 mb-6">
         <h1 className="text-3xl font-bold text-blue-900">Optimized Section</h1>
     </div>
@@ -1241,6 +1241,6 @@ const List = ({ items }: { items: string[] }) => (
             <Card key={index} {...item} />
         ))}
     </div>
-</Section>;
+</Section>; */}
 
 // Removed duplicate function declaration to resolve the error

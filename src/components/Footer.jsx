@@ -9,7 +9,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="  dark:border-gray-700 dark:text-gray-900">
+    <footer className="  dark:border-gray-700 text-[var(--foreground)]">
       <div className="container mx-auto ">
         <div className="flex flex-col mb-6 md:flex-row justify-between items-center">
           {/* Left section - Copyright */}
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
 
           <div className="mb-4 md:mb-0">
-            <p className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors">
+            <p className="text-[var(--foreground)] transition-colors">
               © Kapil.{currentYear}
             </p>
           </div>

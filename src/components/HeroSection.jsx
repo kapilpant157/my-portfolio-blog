@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[500px] overflow-hidden  text-[var(--foreground)]">
+    <section className="relative min-h-[500px] overflow-hidden text-[var(--foreground)]">
       {/* Content Container */}
-      <div className="container mx-auto flex flex-col items-center px-4 py-8 md:flex-row md:py-12 lg:px-8">
+      <div className="container mx-auto flex flex-col items-center px-4 py-2 md:flex-row md:py-8 lg:px-8">
         {/* Left Content - Text & Buttons */}
         <div className="mb-8 flex w-full flex-col items-center text-center md:mb-0 md:w-2/3 md:items-start md:text-left lg:pr-8">
           <h1 className="mb-4 text-3xl font-medium sm:text-4xl lg:text-5xl">

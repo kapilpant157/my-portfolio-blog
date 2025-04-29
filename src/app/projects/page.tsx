@@ -25,14 +25,14 @@ export default function ProjectsPage() {
     });
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-4xl font-bold text-[var(--foreground)] mb-4">
             My Projects
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--foreground)] max-w-3xl mx-auto">
             A collection of my recent work and case studies
           </p>
         </div>
@@ -43,16 +43,16 @@ export default function ProjectsPage() {
             <button
               onClick={() => setActiveFilter('all')}
               className={`px-4 py-2 rounded-md ${activeFilter === 'all' 
-                ? 'bg-primary-500 text-white' 
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'}`}
+                ? 'bg-primary-500 text-[var(--foreground)]' 
+                : 'bg-gray-200 dark:bg-gray-700 text-[var(--foreground)]'}`}
             >
               All Projects
             </button>
             <button
               onClick={() => setActiveFilter('featured')}
               className={`px-4 py-2 rounded-md ${activeFilter === 'featured' 
-                ? 'bg-primary-500 text-white' 
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'}`}
+                ? 'bg-primary-500 text-[var(--foreground)]' 
+                : 'bg-gray-200 dark:bg-gray-700 text-[var(--foreground)]'}`}
             >
               Featured
             </button>
@@ -62,7 +62,7 @@ export default function ProjectsPage() {
             <input
               type="text"
               placeholder="Search projects..."
-              className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+              className="w-full px-4 py-2 rounded-md border border-[var(--border)] bg-[var(--accent)] text-[var(--foreground)]"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -75,7 +75,7 @@ export default function ProjectsPage() {
             <button
               key={tag}
               onClick={() => setSearchQuery(tag)}
-              className="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-500 hover:text-white transition-colors"
+              className="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-[var(--foreground)] hover:bg-primary-500 hover:text-[var(--foreground)] transition-colors"
             >
               {tag}
             </button>
@@ -83,7 +83,7 @@ export default function ProjectsPage() {
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="px-3 py-1 text-sm rounded-full bg-red-500 text-white"
+              className="px-3 py-1 text-sm rounded-full bg-red-500 text-[var(--foreground)]"
             >
               Clear
             </button>
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <h3 className="text-xl font-medium text-gray-700 dark:text-gray-300">
+            <h3 className="text-xl font-medium text-[var(--foreground)]">
               No projects found matching your criteria
             </h3>
             <button 
@@ -107,7 +107,7 @@ export default function ProjectsPage() {
                 setActiveFilter('all');
                 setSearchQuery('');
               }}
-              className="mt-4 px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600"
+              className="mt-4 px-4 py-2 bg-primary-500 text-[var(--foreground)] rounded-md hover:bg-primary-600"
             >
               Reset Filters
             </button>

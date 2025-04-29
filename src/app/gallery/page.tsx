@@ -125,9 +125,9 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className=" bg-[var(--background)] rounded-xl">
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-8">
+      {/* <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">
           Take nothing but Photoes
         </h1>
@@ -136,11 +136,10 @@ export default function GalleryPage() {
           &quot;Photographs are the pause button of life, capturing memories
           that words cannot describe.&quot;
         </p>
-      </div>
+      </div> */}
 
-      {/* Featured Carousel */}
-      <div className="relative container mx-auto px-2 py-8">
-        {/* Carousel Container */}
+      <div className="relative container mx-auto">
+        
         <div className="relative h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl shadow-lg">
           {featuredImages.map((image, index) => (
             <div

@@ -19,7 +19,7 @@ export const posts: Post[] = [
     excerpt:
       "Learn how to set up a new Next.js project with all the latest features.",
     date: "2023-05-15",
-    content: "# Content here...",
+    content: "# Have patience . Blog/ Note comming soon...",
     readingTime: 5,
     featured: true,
   },

@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { FaArrowLeft, FaArrowRight, FaCamera } from 'react-icons/fa';
-import { PiFootprints } from "react-icons/pi";
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 
 interface GalleryItem {
@@ -98,9 +97,8 @@ export default function GalleryPage() {
     <div className="bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2"><FaCamera/>Take nothing but Photoes<FaCamera/></h1>
-        <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-2"><PiFootprints />Leave nothing but Footprints <PiFootprints /></h2>
-        <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-2">Kill noting but Time</h3>
+        <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">Take nothing but Photoes</h1>
+       
         <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
         &quot;Photographs are the pause button of life, capturing memories that words cannot describe.&quot;
         </p>

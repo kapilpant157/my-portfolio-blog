@@ -1,9 +1,5 @@
-/* Uncomment these if using Tailwind CSS */
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
- @import "tailwindcss";
-/* Light Mode (default) */
+
+@import "tailwindcss";
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -15,27 +11,35 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #121212;
-    --foreground: #b90707;
-    --primary: #ffa500;
-    --secondary: #d2b48c;
-    --accent: #606060;
-    --border: #444444;
+    --background: #ffffff; /* Light Background */
+    --foreground: #0a0a0a;
+    --primary: #3a86ff;
+    --secondary: #8338ec;
+    --accent: #ff006e;
+    --border: #e0e0e0;
   }
 }
 
 /* Explicit dark mode class */
 .dark {
-  --background: #000a1f;
-  --foreground: #f7fafc;
-  --primary: #ffa500;
-  --secondary: #d2b48c;
-  --accent: #606060;
-  --border: #444444;
+  --background: #121212; /* Dark Background */
+  --foreground: #e0e0e0; /* Light Text */
+  --primary: #00f5ff; /* Bright Cyan */
+  --secondary: #7209b7; /* Deep Purple */
+  --accent: #ff2d75; /* Vivid Pink */
+  --border: #2a2a2a; /* Dark Border */
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+* {
+  transition: var(--background) 0.3s ease, color 0.3s ease;
+}
+img {
+  transition: filter 0.3s ease;
 }

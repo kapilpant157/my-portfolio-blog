@@ -21,9 +21,9 @@ const ThemeSwitcher = () => {
       aria-label="Toggle theme"
     >
       {theme === 'light' ? (
-        <MoonIcon className="w-5 h-5 text-gray-700" />
-      ) : (
         <SunIcon className="w-5 h-5 text-yellow-300" />
+      ) : (
+        <MoonIcon className="w-5 h-5 text-gray-700" />
       )}
     </button>
   )

@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getAllPosts } from '@/lib/posts';
 import BlogLayout from '@/components/BlogLayout';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 
 export async function generateStaticParams() {
   const posts = await getAllPosts(); // Await the asynchronous function
@@ -25,7 +24,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <BlogLayout frontMatter={post}>
-      <MDXRemote source={post.content} />
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </BlogLayout>
   );
 }

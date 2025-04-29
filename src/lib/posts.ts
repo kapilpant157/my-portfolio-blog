@@ -63,7 +63,7 @@ export const posts: Post[] = [
     `,
     readingTime: 4,
     featured: true,
-    image: "/images/posts/system.png",
+    image: "/images/simulation.png",
   },
   // Missing comma added here
   // Add more posts as needed

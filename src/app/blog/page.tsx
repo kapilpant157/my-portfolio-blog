@@ -103,6 +103,8 @@ export default function BlogPage() {
                       <Image 
                         src={post.image} 
                         alt={post.title} 
+                        width={750}
+                        height={750}
                         className="w-full h-full object-cover"
                       />
                     ) : (

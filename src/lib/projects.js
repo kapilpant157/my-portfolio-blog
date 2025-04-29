@@ -6,7 +6,7 @@ const projects = [
     description:
       "R. Pandey & Associates, one of the leading chartered accountants firm in Nepal.",
     tags: ["Next.js", "Tailwind CSS", "React"],
-    image: "/images/abc.png",
+    image: "/images/rpa-associate.png",
     link: "https://rpanepal.com.np/",
     featured: true,
   },
@@ -14,9 +14,9 @@ const projects = [
     slug: "maya-party-place",
     title: "Maya Party Place",
     description:
-      "Maya party palace is one of the best and growing party palace in Bhimdutt-18, Kanchanpur.",
+      "Maya party palace is one of the best and growing party palace in Kanchanpur.",
     tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    image: "/images/abc.png",
+    image: "/images/maya-party-palace.png",
     link: "https://dreamy-noyce-adaddb.netlify.app/",
     featured: true,
   },
@@ -26,7 +26,7 @@ const projects = [
     description:
       "A construction company website showcasing services and projects.",
     tags: ["React", "Firebase", "Material UI"],
-    image: "/images/abc.png",
+    image: "/images/construction.png",
     link: "https://www.youtube.com/watch?v=f3Qv4qa1w0A&ab_channel=KapilDevPant",
     featured: true,
   },

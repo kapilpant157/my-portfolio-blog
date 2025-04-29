@@ -1,41 +1,47 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    darkMode: 'class',
-    content: [
-      './src/**/*.{js,ts,jsx,tsx,mdx}',
-      './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    ],
-    theme: {
-      extend: {
-        colors: {
-          primary: {
-            back:'#080b10',
-            light: '#3b82f6',
-            dark: '#0c0000',
-            
-          },
-          secondary: {
-            light: '#10b981',
-            dark: '#0c0000',
-          },
-        },
+  darkMode: "class",
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        accent: "var(--accent)",
+        border: "var(--border)",
+      },
+      fontFamily: {
+        orbitron: ["Orbitron", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
+        mono: ["Fira Code", "monospace"],
       },
     },
-    plugins: [
-      // require('@tailwindcss/typography'),
-    ],
-  }
-  module.exports = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        colors: {
-          primary: {
-            500: '#6366f1', // Example primary color
-            600: '#4f46e5',
-          },
-        },
-      },
-    },
-  }
+  },
+  plugins: [
+    // require('@tailwindcss/typography'),
+  ],
+};
+
+
+
+// ``````javascript
+module.exports = {
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'], // Adjust paths as needed
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+// ``````javascript
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};

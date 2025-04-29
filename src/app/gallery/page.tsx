@@ -1,237 +1,188 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Image from 'next/image'
-import Lightbox from 'yet-another-react-lightbox'
-import 'yet-another-react-lightbox/styles.css'
-import Zoom from 'yet-another-react-lightbox/plugins/zoom'
-import Video from 'yet-another-react-lightbox/plugins/video'
-// import YouTube from 'yet-another-react-lightbox/plugins/youtube'
+import { useState } from 'react';
+import Image from 'next/image';
+import { FaArrowLeft, FaArrowRight, FaCamera } from 'react-icons/fa';
 
-type GalleryItem = {
-  id: string
-  type: 'image' | 'video' | 'youtube'
-  src: string
-  alt: string
-  title: string
-  description?: string
-  date: string
-  thumbnail?: string
+interface GalleryItem {
+  id: number;
+  src: string;
+  alt: string;
+  date: string;
+  memory: string;
 }
 
-const galleryItems = [
+const featuredImages: GalleryItem[] = [
   {
-    id: '1',
-    type: 'image',
+    id: 1,
     src: '/images/gallery/abc.png',
-    thumbnail: '/images/gallery/abc.png',
-    alt: 'UI Design Project',
-    title: 'E-commerce Dashboard',
-    description: 'Modern dashboard interface with analytics visualization',
-    date: 'May 2023'
+    alt: 'Featured memory 1',
+    date: 'June 2023',
+    memory: 'Summer vacation in the mountains'
   },
   {
-    id: '2',
-    type: 'video',
-    src: '/gallery/video1.mp4',
-    thumbnail: '/gallery/video1-thumb.jpg',
-    alt: 'Mobile App Demo',
-    title: 'Fitness Tracker App',
-    description: 'User journey through workout tracking features',
-    date: 'March 2023'
+    id: 2,
+    src: '/images/gallery/aa.jpg',
+    alt: 'Featured memory 2',
+    date: 'December 2022',
+    memory: 'Christmas family gathering'
   },
   {
-    id: '3',
-    type: 'youtube',
-    src: 'https://www.youtube.com/watch?v=3cDCtSAoWWw',
-    thumbnail: '/gallery/youtube-thumb.jpg',
-    alt: 'Product Demo',
-    title: 'Product Launch',
-    description: 'Official product demonstration with feature walkthrough',
-    date: 'June 2023'
-  },
-  {
-    id: '4',
-    type: 'image',
-    src: '/gallery/abc.png',
-    thumbnail: '/gallery/abc-thumb.jpg',
-    alt: 'Mobile UI Design',
-    title: 'Food Delivery App',
-    description: 'Restaurant browsing and ordering interface',
-    date: 'April 2023'
-  },
-  {
-    id: '5',
-    type: 'video',
-    src: '/gallery/video2.mp4',
-    thumbnail: '/gallery/video2-thumb.jpg',
-    alt: 'Web App Demo',
-    title: 'Project Management Tool',
-    description: 'Team collaboration features demonstration',
-    date: 'July 2023'
-  },
-  {
-    id: '6',
-    type: 'youtube',
-    src: 'https://www.youtube.com/watch?v=example2',
-    thumbnail: '/gallery/youtube2-thumb.jpg',
-    alt: 'Tutorial Video',
-    title: 'UI Design Tutorial',
-    description: 'Step-by-step design process in Figma',
-    date: 'August 2023'
+    id: 3,
+    src: '/images/gallery/aaa.jpg',
+    alt: 'Featured memory 3',
+    date: 'March 2023',
+    memory: 'Spring festival celebrations'
   }
-] satisfies GalleryItem[]
+];
+
+const galleryImages: GalleryItem[] = [
+  {
+    id: 4,
+    src: '/images/gallery/aa.jpg',
+    alt: 'Memory 1',
+    date: 'May 2023',
+    memory: 'Beach sunset with friends'
+  },
+  {
+    id: 5,
+    src: '/images/gallery/aa.jpg',
+    alt: 'Memory 2',
+    date: 'July 2023',
+    memory: 'Hiking adventure'
+  },
+  {
+    id: 6,
+    src: '/images/gallery/aa.jpg',
+    alt: 'Memory 3',
+    date: 'August 2023',
+    memory: 'City exploration'
+  },
+  {
+    id: 7,
+    src: '/images/gallery/aa.jpg',
+    alt: 'Memory 4',
+    date: 'September 2023',
+    memory: 'Concert night'
+  },
+  {
+    id: 8,
+    src: '/images/gallery/aa.jpg',
+    alt: 'Memory 5',
+    date: 'October 2023',
+    memory: 'Autumn colors'
+  },
+  {
+    id: 9,
+    src: '/images/gallery/aa.jpg',
+    alt: 'Memory 6',
+    date: 'November 2023',
+    memory: 'First snowfall'
+  }
+];
 
 export default function GalleryPage() {
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const openLightbox = (index: number) => {
-    setCurrentIndex(index)
-    setLightboxOpen(true)
-  }
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === featuredImages.length - 1 ? 0 : prev + 1));
+  };
 
-  const slides = galleryItems.map(item => {
-    if (item.type === 'video') {
-      return {
-        type: 'video',
-        sources: [{
-          src: item.src,
-          type: 'video/mp4'
-        }],
-        title: item.title,
-        description: item.description
-      }
-    } else if (item.type === 'youtube') {
-      return {
-        type: 'youtube',
-        src: item.src,
-        title: item.title,
-        description: item.description
-      }
-    } else {
-      return {
-        src: item.src,
-        alt: item.alt,
-        title: item.title,
-        description: item.description
-      }
-    }
-  })
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? featuredImages.length - 1 : prev - 1));
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-primary-500 to-primary-600 dark:from-primary-600 dark:to-primary-700 py-20 px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Project Gallery</h1>
-          <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-            A visual showcase of my design and development work
-          </p>
-        </div>
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">Take nothing but Photes</h1>
+        <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-2">Leave nothing but Footprints</h2>
+        <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-2">Kill noting but Time</h3>
+        <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          "Photographs are the pause button of life, capturing memories that words cannot describe."
+        </p>
       </div>
 
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-16">
-        {/* Filters */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-12">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="relative flex-grow">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Search gallery..."
-                className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              />
-            </div>
-            
-            <div className="w-full md:w-auto">
-              <select
-                className="block w-full pl-3 pr-10 py-3 text-base border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              >
-                <option value="all">All Media Types</option>
-                <option value="image">Images</option>
-                <option value="video">Videos</option>
-                <option value="youtube">YouTube</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item, index) => (
-            <div 
-              key={item.id}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-              onClick={() => openLightbox(index)}
+      {/* Featured Carousel */}
+      <div className="relative container mx-auto px-4 py-8">
+        <div className="relative h-64 md:h-96 overflow-hidden rounded-xl shadow-lg">
+          {featuredImages.map((image, index) => (
+            <div
+              key={image.id}
+              className={`absolute inset-0 transition-opacity duration-500 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             >
-              {/* Thumbnail */}
-              <div className="relative aspect-video bg-gray-100 dark:bg-gray-700">
-                {item.thumbnail ? (
-                  <Image
-                    src={item.thumbnail}
-                    alt={item.alt}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    {item.type === 'image' && (
-                      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    )}
-                    {item.type === 'video' && (
-                      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    )}
-                    {item.type === 'youtube' && (
-                      <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                      </svg>
-                    )}
-                  </div>
-                )}
-                <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
-                  {item.type.toUpperCase()}
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{item.title}</h3>
-                {item.description && (
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-2 line-clamp-2">{item.description}</p>
-                )}
-                <p className="text-gray-500 dark:text-gray-400 text-xs">{item.date}</p>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+                <p className="text-sm font-medium">{image.date}</p>
+                <h3 className="text-xl font-bold">{image.memory}</h3>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Lightbox */}
-        <Lightbox
-          open={lightboxOpen}
-          close={() => setLightboxOpen(false)}
-          // slides={slides}
-          index={currentIndex}
-          plugins={[Zoom, Video]}
-          // plugins={[Zoom, Video, YouTube]}
+        {/* Carousel Controls */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+          aria-label="Previous slide"
+        >
+          <FaArrowLeft size={24} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+          aria-label="Next slide"
+        >
+          <FaArrowRight size={24} />
+        </button>
 
-          controller={{ closeOnBackdropClick: true }}
-          carousel={{ finite: true }}
-          render={{
-            buttonPrev: slides.length <= 1 ? () => null : undefined,
-            buttonNext: slides.length <= 1 ? () => null : undefined,
-          }}
-        />
-      </main>
+        {/* Indicators */}
+        <div className="flex justify-center mt-4 space-x-2">
+          {featuredImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-gray-800 dark:bg-white' : 'bg-gray-300 dark:bg-gray-600'}`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Gallery Grid */}
+      <div className="container mx-auto px-4 py-12">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">More Memories</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {galleryImages.map((image) => (
+            <div key={image.id} className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <p className="text-sm font-medium text-white/90">{image.date}</p>
+                <h3 className="text-lg font-bold text-white">{image.memory}</h3>
+              </div>
+              <div className="p-4 bg-white dark:bg-gray-800">
+                <p className="text-sm text-gray-500 dark:text-gray-400">{image.date}</p>
+                <h3 className="font-medium text-gray-900 dark:text-white">{image.memory}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  )
+  );
 }

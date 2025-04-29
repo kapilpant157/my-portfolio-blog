@@ -22,14 +22,14 @@ const featuredImages: GalleryItem[] = [
   },
   {
     id: 2,
-    src: "/images/gallery/aa.jpg",
+    src: "/images/gallery/doon.jpg",
     alt: "Featured memory 2",
     date: "December 2022",
     memory: "Christmas family gathering",
   },
   {
     id: 3,
-    src: "/images/gallery/aaa.jpg",
+    src: "/images/gallery/gehu.jpg",
     alt: "Featured memory 3",
     date: "March 2023",
     memory: "Spring festival celebrations",
@@ -53,28 +53,56 @@ const galleryImages: GalleryItem[] = [
   },
   {
     id: 6,
-    src: "/images/gallery/aa.jpg",
+    src: "/images/gallery/doon.jpg",
     alt: "Memory 3",
     date: "August 2023",
     memory: "City exploration",
   },
   {
     id: 7,
-    src: "/images/gallery/aa.jpg",
-    alt: "Memory 4",
+    src: "/images/gallery/devalsari.jpg",
+    alt: "devalsari",
     date: "September 2023",
-    memory: "Concert night",
+    memory: "devalsari trip",
   },
   {
     id: 8,
-    src: "/images/gallery/aa.jpg",
+    src: "/images/gallery/gehu.jpg",
     alt: "Memory 5",
     date: "October 2023",
     memory: "Autumn colors",
   },
   {
     id: 9,
-    src: "/images/gallery/aa.jpg",
+    src: "/images/gallery/nagarkot.jpg",
+    alt: "Memory 6",
+    date: "November 2023",
+    memory: "First snowfall",
+  },
+  {
+    id: 10,
+    src: "/images/gallery/nagarkot.jpg",
+    alt: "Memory 6",
+    date: "November 2023",
+    memory: "First snowfall",
+  },
+  {
+    id: 11,
+    src: "/images/gallery/nagarkot.jpg",
+    alt: "Memory 6",
+    date: "November 2023",
+    memory: "First snowfall",
+  },
+  {
+    id: 12,
+    src: "/images/gallery/nagarkot.jpg",
+    alt: "Memory 6",
+    date: "November 2023",
+    memory: "First snowfall",
+  },
+  {
+    id: 13,
+    src: "/images/gallery/nagarkot.jpg",
     alt: "Memory 6",
     date: "November 2023",
     memory: "First snowfall",
@@ -112,61 +140,75 @@ export default function GalleryPage() {
 
       {/* Featured Carousel */}
       <div className="relative container mx-auto px-2 py-8">
-        <div className="relative h-80 md:h-[30rem] overflow-hidden rounded-xl shadow-lg">
+        {/* Carousel Container */}
+        <div className="relative h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl shadow-lg">
           {featuredImages.map((image, index) => (
             <div
               key={image.id}
-              className={`absolute inset-0 transition-opacity duration-500 ${
-                index === currentSlide ? "opacity-100" : "opacity-0"
+              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                index === currentSlide
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none"
               }`}
+              aria-hidden={index !== currentSlide}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
-                height={500}
-                width={500}
+                fill
+                priority={index === 0}
                 className="object-cover"
-                priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                quality={index === currentSlide ? 90 : 70}
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                <p className="text-sm font-medium">{image.date}</p>
-                <h3 className="text-xl font-bold">{image.memory}</h3>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 md:p-6 text-white">
+                <p className="text-xs md:text-sm font-medium">{image.date}</p>
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold mt-1">
+                  {image.memory}
+                </h3>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Carousel Controls */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
-          aria-label="Previous slide"
-        >
-          <FaArrowLeft size={24} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
-          aria-label="Next slide"
-        >
-          <FaArrowRight size={24} />
-        </button>
-
-        {/* Indicators */}
-        <div className="flex justify-center mt-4 space-x-2">
-          {featuredImages.map((_, index) => (
+        {/* Carousel Controls - Only show if multiple images */}
+        {featuredImages.length > 1 && (
+          <>
             <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full ${
-                index === currentSlide
-                  ? "bg-gray-800 dark:bg-white"
-                  : "bg-gray-300 dark:bg-gray-600"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+              onClick={prevSlide}
+              className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all z-10 focus:outline-none focus:ring-2 focus:ring-white/50"
+              aria-label="Previous slide"
+            >
+              <FaArrowLeft size={20} className="md:w-6 md:h-6" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all z-10 focus:outline-none focus:ring-2 focus:ring-white/50"
+              aria-label="Next slide"
+            >
+              <FaArrowRight size={20} className="md:w-6 md:h-6" />
+            </button>
+          </>
+        )}
+
+        {/* Indicators - Only show if multiple images */}
+        {featuredImages.length > 1 && (
+          <div className="flex justify-center mt-4 space-x-2">
+            {featuredImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
+                  index === currentSlide
+                    ? "bg-gray-800 dark:bg-white scale-125"
+                    : "bg-gray-300 dark:bg-gray-600 hover:scale-110"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={index === currentSlide}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Gallery Grid */}

@@ -10,13 +10,14 @@ export async function generateStaticParams() {
 }
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getPostBySlug(params.slug); // Await the asynchronous function
+  const resolvedParams = await params; // Await the params Promise
+  const post = await getPostBySlug(resolvedParams.slug); // Await the asynchronous function
 
   if (!post) {
     return notFound();

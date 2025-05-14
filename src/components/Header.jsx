@@ -10,6 +10,8 @@ const NAV_LINKS = [
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Blog" },
   { href: "/systemsim", label: "Simulation and Modeling" },
+  // { href: "/universities", label: "University" },
+  
 ];
 
 const Header = () => {

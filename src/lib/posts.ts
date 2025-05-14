@@ -7,7 +7,7 @@ interface Post {
   content: string;
   readingTime: number;
   featured?: boolean;
-  categories?: string[]; 
+  categories?: string[];
 }
 
 export const posts: Post[] = [
@@ -19,7 +19,7 @@ export const posts: Post[] = [
     excerpt:
       "Learn how to set up a new Next.js project with all the latest features.",
     date: "2023-05-15",
-    content: "# Have patience . Blog/ Note comming soon...",
+    content: "# Have patience . Blog/ Note comming soon.. .",
     readingTime: 5,
     featured: true,
   },
@@ -64,6 +64,27 @@ export const posts: Post[] = [
     readingTime: 4,
     featured: true,
     image: "/images/simulation.png",
+  },
+  {
+    slug: "ai",
+    categories: [],
+    title: "Introduction to Artificial Intelligence",
+    excerpt:
+      "Explore the basics of AI, its applications, and its impact on various industries.",
+    date: "2023-05-15",
+    content: `
+      ## What is Artificial Intelligence?
+      
+      Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn like humans. AI can be categorized into two types: narrow AI and general AI.
+      
+      ### Applications of AI
+      - **Healthcare**: AI is used for diagnostics, personalized medicine, and drug discovery.
+      - **Finance**: AI algorithms are used for fraud detection, risk management, and algorithmic trading.
+      - **Transportation**: Self-driving cars and traffic management systems utilize AI technologies.
+    `,
+    readingTime: 4,
+    featured: true,
+    image: "/images/ai-thumbnail.png",
   },
   // Missing comma added here
   // Add more posts as needed

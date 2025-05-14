@@ -29,7 +29,7 @@ const featuredImages: GalleryItem[] = [
   },
   {
     id: 3,
-    src: "/images/gallery/gehu.jpg",
+    src: "/images/gallery/scene.jpg",
     alt: "Featured memory 3",
     date: "March 2023",
     memory: "Spring festival celebrations",
@@ -39,7 +39,7 @@ const featuredImages: GalleryItem[] = [
 const galleryImages: GalleryItem[] = [
   {
     id: 4,
-    src: "/images/gallery/aa.jpg",
+    src: "/images/gallery/tyuni.jpg",
     alt: "Memory 1",
     date: "May 2023",
     memory: "Beach sunset with friends",
@@ -60,7 +60,7 @@ const galleryImages: GalleryItem[] = [
   },
   {
     id: 7,
-    src: "/images/gallery/devalsari.jpg",
+    src: "/images/gallery/drops.jpg",
     alt: "devalsari",
     date: "September 2023",
     memory: "devalsari trip",
@@ -74,35 +74,35 @@ const galleryImages: GalleryItem[] = [
   },
   {
     id: 9,
-    src: "/images/gallery/nagarkot.jpg",
+    src: "/images/gallery/george.jpg",
     alt: "Memory 6",
     date: "November 2023",
     memory: "First snowfall",
   },
   {
     id: 10,
-    src: "/images/gallery/nagarkot.jpg",
+    src: "/images/gallery/way-to.jpg",
     alt: "Memory 6",
     date: "November 2023",
     memory: "First snowfall",
   },
   {
     id: 11,
-    src: "/images/gallery/nagarkot.jpg",
+    src: "/images/gallery/way.jpg",
     alt: "Memory 6",
     date: "November 2023",
     memory: "First snowfall",
   },
   {
     id: 12,
-    src: "/images/gallery/nagarkot.jpg",
+    src: "/images/gallery/pashupati.jpg",
     alt: "Memory 6",
     date: "November 2023",
     memory: "First snowfall",
   },
   {
     id: 13,
-    src: "/images/gallery/nagarkot.jpg",
+    src: "/images/gallery/doon.jpg",
     alt: "Memory 6",
     date: "November 2023",
     memory: "First snowfall",

@@ -31,13 +31,14 @@ const projects = [
     featured: true,
   },
   {
-    slug: "task-manager",
-    title: "Task Manager",
-    description: "A productivity app for managing daily tasks and projects.",
+    slug: "notes-app",
+    title: "Notes App",
+    description:
+      "A simple notes app to view, read, and upload notes with a user-friendly interface.",
     tags: ["React", "Firebase", "Material UI"],
-    image: "/images/abc.png",
-    link: "https://tasks.example.com",
-    github: "https://www.github.com/yourusername/task-manager",
+    image: "/images/university-images/notes.png",
+    link: "/universities",
+    // github: "https://www.github.com/yourusername/task-manager",
     featured: true,
   },
 ];
